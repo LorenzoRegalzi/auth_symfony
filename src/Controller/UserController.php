@@ -32,6 +32,16 @@ class UserController extends AbstractController
     }
 
     /**
+     * @Route("/users", name="users", methods={"GET"})
+     */
+    public function users(UserRepository $userRepository): Response
+    {
+        return $this->render('user/users.html.twig', [
+            'users' => $userRepository->findAll(),
+        ]);
+    }
+
+    /**
      * @Route("/mario", name="user_new", methods={"GET","POST"})
      */
     public function new(Request $request): Response

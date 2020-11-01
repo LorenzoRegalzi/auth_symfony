@@ -1,0 +1,25 @@
+$color : white;
+
+
+
+body {
+    background-color:red;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+.prova{
+    width: 1000px;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: red;
+}
+}
+.elenco{
+    display: flex;
+
+}
