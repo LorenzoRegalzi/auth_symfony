@@ -3,15 +3,16 @@
 {% block title %}Product index{% endblock %}
 
 {% block body %}
-    <h1>Product index</h1>
-
-    <table class="table">
+    <div class='section vh-100 section d-flex flex-column  align-items-center'>
+    <h1 class='mt-5'>Prodotti</h1>
+    <a href="{{ path('product_new') }}" class='btn btn-success mt-5 mb-5'>Aggiungi prodotto</a>
+    <table class="table table-dark w-75">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Price</th>
-                <th>actions</th>
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Price</th>
+                <th scope="col">actions</th>
             </tr>
         </thead>
         <tbody>
@@ -20,9 +21,9 @@
                 <td>{{ product.id }}</td>
                 <td>{{ product.name }}</td>
                 <td>{{ product.price }}</td>
-                <td>
-                    <a href="{{ path('product_show', {'id': product.id}) }}">show</a>
-                    <a href="{{ path('product_edit', {'id': product.id}) }}">edit</a>
+                <td class='w-25'>
+                    <a href="{{ path('product_show', {'id': product.id}) }}" class="btn btn-info">show</a>
+                    <a href="{{ path('product_edit', {'id': product.id}) }}" class="btn btn-warning">edit</a>
                 </td>
             </tr>
         {% else %}
@@ -32,6 +33,6 @@
         {% endfor %}
         </tbody>
     </table>
-
-    <a href="{{ path('product_new') }}">Create new</a>
+</div>
+   
 {% endblock %}
