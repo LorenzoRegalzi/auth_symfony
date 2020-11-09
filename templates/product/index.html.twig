@@ -6,6 +6,9 @@
     <div class='section vh-100 section d-flex flex-column  align-items-center'>
     <h1 class='mt-5'>Prodotti</h1>
     <a href="{{ path('product_new') }}" class='btn btn-success mt-5 mb-5'>Aggiungi prodotto</a>
+
+    {{ include('_formsearch.html.twig') }}
+
     <table class="table table-dark w-75">
         <thead>
             <tr>

@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Order{% endblock %}
+
+{% block body %}
+
+<a href="{{ path('order') }}" class="btn btn-primary position-absolute" >back to list</a>
+<div class="vw-100 vh-100 section d-flex justify-content-center align-items-center" style="width: 18rem;">
+
+
+    
+    <div class="card p-3 h-50 d-flex flex-column  align-items-center">
+    <h1 class='text-center'>Create new Order</h1>
+    {{ include('order/_form.html.twig') }}
+    </div>
+</div>
+    
+
+{% endblock %}

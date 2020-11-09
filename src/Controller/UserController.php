@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Data\SearchData;
+use App\Form\SearchForm;
 use App\Entity\User;
 use App\Form\UserType;
 use App\Repository\UserRepository;
@@ -21,23 +23,41 @@ class UserController extends AbstractController
     public function __construct(UserPasswordEncoderInterface $passwordEncoder){
         $this->passwordEncoder = $passwordEncoder;
     }
+
+
+
+
+    
+
     /**
      * @Route("/", name="user_index", methods={"GET"})
      */
     public function index(UserRepository $userRepository): Response
     {
+        $user = new User();
+        
         return $this->render('user/index.html.twig', [
             'users' => $userRepository->findAll(),
         ]);
     }
 
+
+
     /**
      * @Route("/users", name="users", methods={"GET"})
      */
-    public function users(UserRepository $userRepository): Response
+    public function users(UserRepository $userRepository, Request $request)
     {
+        $data = new SearchData();
+        $form = $this->createForm(SearchForm::class, $data);
+        $form->handleRequest($request);
+
+        $user =  $userRepository ->findSearch($data);
+
         return $this->render('user/users.html.twig', [
-            'users' => $userRepository->findAll(),
+            'users' => $user,
+            'form' => $form->createView(),
+           
         ]);
     }
 

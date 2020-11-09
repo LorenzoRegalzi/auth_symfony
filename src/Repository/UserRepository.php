@@ -2,6 +2,8 @@
 
 namespace App\Repository;
 
+
+use App\Data\SearchData;
 use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -36,6 +38,23 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         $this->_em->flush();
     }
 
+    public function findSearch(SearchData $search): array
+    {
+        $query = $this
+            ->createQueryBuilder('p')
+            ->select('p');
+
+        if(!empty($search->q)) {
+            $query = $query
+                ->andWhere('p.email LIKE :q')
+                ->setParameter('q', "%{$search->q}%");
+        }
+
+
+
+
+        return $query->getQuery()->getResult();
+    }
     // /**
     //  * @return User[] Returns an array of User objects
     //  */

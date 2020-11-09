@@ -3,28 +3,34 @@
 {% block title %}Product{% endblock %}
 
 {% block body %}
-    <h1>Product</h1>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ product.id }}</td>
-            </tr>
-            <tr>
-                <th>Name</th>
-                <td>{{ product.name }}</td>
-            </tr>
-            <tr>
-                <th>Price</th>
-                <td>{{ product.price }}</td>
-            </tr>
-        </tbody>
-    </table>
+    <a href="{{ path('products') }}" class="btn btn-primary position-absolute" >back to list</a>
+  
 
-    <a href="{{ path('product_index') }}">back to list</a>
 
-    <a href="{{ path('product_edit', {'id': product.id}) }}">edit</a>
+    <div class="vw-100 vh-100 section d-flex justify-content-center align-items-center" style="width: 18rem;">
+        <div class="h-50 w-25 card  d-flex flex-column  ">
+             <div class="w-100  h-25 bg-warning  ">
+            <h1 class=" text-center mb-5 pt-2"> {{ product.name }}</h1>
+            </div >
+            <div class="pl-4 pt-2 h-50">
+            <p> id: {{ product.id }}</p>
+           
+            <p> name: {{ product.name }}</p>
+        
+        
+            <p> price: {{ product.price }} $</p>
+            
+            </div>
+            <div class=" pt-2 h-25 w-100  bg-warning text-center">
+            <a style="height: 100%"  href="{{ path('product_edit', {'id': product.id}) }}"> <h1 class=" h-100 text-center mb-5 pt-2">  edit </h1></a>
+            </div>
+        </div>
+</div>
+
+    
+
+    
 
     {{ include('product/_delete_form.html.twig') }}
 {% endblock %}
