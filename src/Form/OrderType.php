@@ -6,6 +6,8 @@ use App\Entity\Order;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+//use Symfony\Component\Form\Extension\Core\Type\EntityType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 class OrderType extends AbstractType
 {
@@ -16,6 +18,12 @@ class OrderType extends AbstractType
             ->add('orderNumber')
             ->add('company')
             ->add('price')
+            ->add('client', EntityType::Class, [
+                'class' => 'App\Entity\Client',
+            ])
+            ->add('user', EntityType::Class, [
+                'class' => 'App\Entity\User',
+            ])
         ;
     }
 

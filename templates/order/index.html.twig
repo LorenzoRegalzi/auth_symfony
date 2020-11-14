@@ -13,8 +13,8 @@
                 <th>Id</th>
                 <th>Name</th>
                 <th>OrderNumber</th>
-                <th>Company</th>
-                <th>Price</th>
+                <th>Cliente</th>
+                <th>Dipendente</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -24,8 +24,8 @@
                 <td>{{ order.id }}</td>
                 <td>{{ order.name }}</td>
                 <td>{{ order.orderNumber }}</td>
-                <td>{{ order.company }}</td>
-                <td>{{ order.price }}</td>
+                <td>{{ order.client }}</td>
+                <td>{{ order.user }}</td>
                 <td class='w-25'>
                     <a href="{{ path('order_show', {'id': order.id}) }} class="btn btn-info"">show</a>
                     <a href="{{ path('order_edit', {'id': order.id}) }} class="btn btn-warning"">edit</a>
