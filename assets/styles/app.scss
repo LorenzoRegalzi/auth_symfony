@@ -1,4 +1,16 @@
 $color : #121212;
+$overlay:  rgba(255,255,255,0.1);
+$overlay-inf: rgba(255,255,255,0.2);
+$overlay-but:  rgba(255,255,255,0.4);
+$brandcolor: #ffcf00;
+$brandoff: #bf9b07;
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: gotham;
+}
 
 p {
     color: lightgrey;
@@ -6,26 +18,102 @@ p {
 }
 a {
     text-decoration: none;
-    color: lightgrey;
+    color: $color;
     transition: transform .2s; /* Animation */
 }
 .btn{
-    background-color: yellow;
+    background-color: $brandcolor;
     border: 0;
-    color: #121212;
+    color: lightgray;
 }
 .btn:hover{
-    background-color: lightyellow;
+    background-color: white;
+}
+h2 {
+    color: lightgray;
 }
 .logout {
     position: absolute;
     left: 0;
     top: 0;
+    margin: 1%;
 }
 a:hover { 
     text-decoration: none; 
     color: #FFFFFF; 
     transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+
+//homebutton
+
+
+#option {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: $overlay-inf;
+    display: none;
+}
+.my-smtop{
+    top: 5%;
+}
+.mytop{
+    top: 15%;
+}
+.my-lgtop{
+    top: 20%;
+}
+
+.my-homebutt {
+    border: 3px solid $brandoff;
+    position: relative;
+    width: 100px;
+    height: 100px;
+    background-color: $color;
+    border-radius: 50%;
+    margin: 10px;
+    color: gray;
+    font-weight: bold;
+    font-size: 14px;
+    transition: transform .2s;
+}
+.my-homebutt:hover {
+    border: 5px solid $brandcolor;
+    color: white;
+    transform: scale(1.1);
+}
+.my-homebutt:focus {
+    outline: none;
+}
+#homebutton {
+    width: 30vh;
+    height: 10vh;
+    border-bottom-left-radius: 80%;
+    border-bottom-right-radius: 80%;
+    background-color: $overlay;
+    color: lightgray; 
+    border: 0;
+    font-size: 20px;
+}
+#homebutton:hover {
+    color: white;
+    font-size: 24px;
+}
+#homebutton:focus {
+    outline: none;
+}
+//
+
+
+
+
+
+// home section
+.img-user {
+    border-radius: 50%;
+    width: 50px;
+    margin-right: 10px;
 }
 
 body {
@@ -38,19 +126,70 @@ body {
 }
 
 .card {
-    
+  
     background-color: transparent;
 }
 
 .container {
+    
     height: 50vh;
     width: 20vw;
 
 }
-.overlay{
 
-    
+.overlay {
     background-color: rgba(255,255,255,0.1); /* Black background with opacity */
     z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
     cursor: pointer; /* Add a pointer on hover */
+    border-radius: 5%;
+}
+.overlay:hover {
+    background-color: rgba(255,255,255,0.2); /* Black background with opacity */
+}
+
+//
+
+//table
+.navtab{
+    width: 95vw;
+    background-color: $overlay;
+    color: lightgray;
+    display: inline-block;
+    display: flex;
+    justify-content: space-between;
+    padding: 1%;
+}
+.block{
+    display: inline-block;
+}
+
+.mytab {
+    width: 95vw;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    background-color: $overlay;
+    color: lightgray;
+}
+.tablebutton {
+    height: 5vh;
+    padding: 10px;
+    background-color: $overlay;
+    color: lightgray; 
+    border: 0;
+    font-size: 15px;
+}
+.tablebutton:hover {
+    color: white;
+    background-color: $overlay-but;
+}
+.tablebutton:focus {
+    outline: none;
+}
+th{
+    height: 10vh;
+    padding: 1%;
+}
+td{
+    height: 10vh;
+    padding: 1%;
 }

@@ -4,11 +4,13 @@
 
 {% block body %}
     <div class='section vh-100 section d-flex flex-column  align-items-center'>
-    <h1 class='mt-5'>Clienti </h1>
 
-    <a href="{{ path('client_new') }}" class='btn btn-success mt-5 mb-5'>Aggiungi cliente</a>
-    {{ include('_formsearch.html.twig') }}
-    <table class="table table-dark w-75">
+    <div class='navtab mt-5'>
+        <h1 class='block'>Clienti</h1>
+        <div class='block'> {{ include('_formsearch.html.twig') }}</div>
+        <a class='block tablebutton'href="{{ path('client_new') }}" >Create new</a>  
+    </div>
+    <table class="mytab">
         <thead>
             <tr>
                 <th scope="col">Id</th>
@@ -26,8 +28,8 @@
                 <td>{{ client.place }}</td>
                 <td>{{ client.status }}</td>
                 <td class='w-25'>
-                    <a href="{{ path('client_show', {'id': client.id}) }}" class="btn btn-info">show</a>
-                    <a href="{{ path('client_edit', {'id': client.id}) }}" class="btn btn-warning">edit</a>
+                    <a href="{{ path('client_show', {'id': client.id}) }}" class="tablebutton">show</a>
+                    <a href="{{ path('client_edit', {'id': client.id}) }}" class="tablebutton">edit</a>
                 </td>
             </tr>
         {% else %}

@@ -3,13 +3,16 @@
 {% block title %}Product index{% endblock %}
 
 {% block body %}
+
     <div class='section vh-100 section d-flex flex-column  align-items-center'>
-    <h1 class='mt-5'>Prodotti</h1>
-    <a href="{{ path('product_new') }}" class='btn btn-success mt-5 mb-5'>Aggiungi prodotto</a>
 
-    {{ include('_formsearch.html.twig') }}
+     <div class='navtab mt-5'>
+        <h1 class='block'>Prodotti</h1>
+        <div class='block'>{{ include('_formsearch.html.twig') }}</div>
+        <a class='block tablebutton'href="{{ path('product_new') }}" >Create new</a>  
+    </div>
 
-    <table class="table table-dark w-75">
+    <table class="mytab">
         <thead>
             <tr>
                 <th scope="col">Id</th>
@@ -25,8 +28,8 @@
                 <td>{{ product.name }}</td>
                 <td>{{ product.price }}</td>
                 <td class='w-25'>
-                    <a href="{{ path('product_show', {'id': product.id}) }}" class="btn btn-info">show</a>
-                    <a href="{{ path('product_edit', {'id': product.id}) }}" class="btn btn-warning">edit</a>
+                    <a href="{{ path('product_show', {'id': product.id}) }}" class="tablebutton">show</a>
+                    <a href="{{ path('product_edit', {'id': product.id}) }}" class="tablebutton">edit</a>
                 </td>
             </tr>
         {% else %}
