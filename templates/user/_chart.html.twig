@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}User index{% endblock %}
+
+{% block body %}
+    {# navbar #}
+  {% if app.user %}
+        <div class="logout">
+            <img src="https://picsum.photos/200" class="img-user" alt="">
+            <p> {{ app.user.username }} </p>
+        </div>
+    {% endif %} 
+    <button id='homebutton' style='top:0; position: absolute'>MyEnesi</button>
+{# <div class='vh-100 vw-100 section '> #}
+ 
+    <div class="grid-container h-100 pt-5">
+        <div class="grid-item p-5"><canvas class='h-100 w-100' id="myChart"></canvas></div>
+        <div class="grid-item p-5"><canvas class='h-100 w-100' id="secondChart"></canvas></div>
+        <div class="grid-item p-5"><canvas class='h-100 w-100' id="thirdChart"></canvas></div>  
+        <div class="grid-item p-5"><canvas class='h-100 w-100' id="fourChart"></canvas></div>
+        <div class="grid-item p-5"><canvas class='h-100 w-100' id="fiveChart"></canvas></div>
+        <div class="grid-item p-5"><canvas class='h-100 w-100' id="sixChart"></canvas></div>  
+        <div class="grid-item p-5"><canvas class='h-100 w-100' id="sevenChart"></canvas></div>
+        <div class="grid-item p-5"><canvas class='h-100 w-100' id="eightChart"></canvas></div>
+        <div class="grid-item p-5"><canvas class='h-100 w-100' id="nineChart"></canvas></div>  
+    </div>
+{# </div> #}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id='option' class='text-center'>
+    {% if app.user %}
+     <a href="{{ path('app_logout') }}"><button class='my-smtop my-homebutt'>Logout</button></a>
+    {% endif %} 
+    <a href="{{ path('order') }}"><button  class=' mr-4 my-homebutt mytop'>Crea ordine</button></a>
+    <a href="{{ path('clients') }}"><button class=' my-homebutt my-lgtop'>clienti</button></a>
+    <a href="{{ path('products') }}"><button class=' ml-4 my-homebutt mytop'>prodotti</button></a>
+    <button class='my-smtop   my-homebutt'>grafici</button>
+</div>
+
+
+{% endblock %}

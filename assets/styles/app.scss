@@ -11,7 +11,10 @@ $brandoff: #bf9b07;
     box-sizing: border-box;
     font-family: gotham;
 }
-
+label {
+    color:white;
+    display: block;
+}
 p {
     color: lightgrey;
     display: inline-block;
@@ -165,6 +168,7 @@ body {
 
 .mytab {
     width: 95vw;
+    overflow-y: auto;
     margin-left: 5vw;
     margin-right: 5vw;
     background-color: $overlay;
@@ -193,3 +197,32 @@ td{
     height: 10vh;
     padding: 1%;
 }
+
+
+
+///card for new
+
+.my-card{
+    width: 40vw;
+    height: 60vh;
+    min-height:  450px;
+    background-color:$overlay-inf;
+    border-radius: 10px;
+}
+.link-button {
+    color: lightgrey;
+}
+
+
+//chart
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding: 10px;
+  }
+  .grid-item {
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+  }

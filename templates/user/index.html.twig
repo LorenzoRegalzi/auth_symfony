@@ -10,7 +10,7 @@
             <p> {{ app.user.username }} </p>
         </div>
     {% endif %} 
-    <button class="btn text-center " id='homebutton'>MyEnesi </button>
+    <button class="btn text-center " id='homebutton'>MyEnesi</button>
    
     <div class='vh-100 section d-flex justify-content-center align-items-center'>
     <a href="{{ path('users') }}"> 
@@ -53,18 +53,13 @@
 
 
 <div id='option' class='text-center'>
-
     {% if app.user %}
      <a href="{{ path('app_logout') }}"><button class='my-smtop my-homebutt'>Logout</button></a>
     {% endif %} 
     <a href="{{ path('order') }}"><button  class=' mr-4 my-homebutt mytop'>Crea ordine</button></a>
     <a href="{{ path('clients') }}"><button class=' my-homebutt my-lgtop'>clienti</button></a>
     <a href="{{ path('products') }}"><button class=' ml-4 my-homebutt mytop'>prodotti</button></a>
-    <button class='my-smtop   my-homebutt'>grafici</button>
-
-
-
-
+    <a href="{{ path('chart') }}"><button class='my-smtop   my-homebutt'>grafici</button></a>
 </div>
 
 

@@ -4,6 +4,11 @@
 
 {% block body %}
     <div class='section vh-100 section d-flex flex-column  align-items-center'>
+    <div class="logout">
+        <p>  <a class='link-button' href="{{ path('user_index') }}">back to list</a> </p>
+    </div>
+    <button class="btn text-center " id='homebutton'>MyEnesi </button>
+
     <div class='navtab mt-5'>
         <h1 class='block'>Ordini</h1>
         <div class='block'>{{ include('_formsearch.html.twig') }}</div>
@@ -12,7 +17,7 @@
 
 
 
-    <table class="mytab">
+    <table class="mytab" >
         <thead>
             <tr>
                 <th>Id</th>
@@ -23,25 +28,34 @@
                 <th>actions</th>
             </tr>
         </thead>
-        <tbody>
-        {% for order in orders %}
-            <tr>
-                <td>{{ order.id }}</td>
-                <td>{{ order.name }}</td>
-                <td>{{ order.orderNumber }}</td>
-                <td>{{ order.client }}</td>
-                <td>{{ order.user }}</td>
-                <td class='w-25'>
-                    <a href="{{ path('order_show', {'id': order.id}) }}" class="tablebutton">show</a>
-                    <a href="{{ path('order_edit', {'id': order.id}) }}" class="tablebutton" >edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="6">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
+            <tbody>
+            {% for order in orders %}
+                <tr>
+                    <td>{{ order.id }}</td>
+                    <td>{{ order.name }}</td>
+                    <td>{{ order.orderNumber }}</td>
+                    <td>{{ order.client }}</td>
+                    <td>{{ order.user }}</td>
+                    <td class='w-25'>
+                        <a href="{{ path('order_show', {'id': order.id}) }}" class="tablebutton">show</a>
+                        <a href="{{ path('order_edit', {'id': order.id}) }}" class="tablebutton" >edit</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="6">no records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
     </table>
 
+<div id='option' class='text-center'>
+    {% if app.user %}
+     <a href="{{ path('app_logout') }}"><button class='my-smtop my-homebutt'>Logout</button></a>
+    {% endif %} 
+    <a href="{{ path('order') }}"><button  class=' mr-4 my-homebutt mytop'>Crea ordine</button></a>
+    <a href="{{ path('clients') }}"><button class=' my-homebutt my-lgtop'>clienti</button></a>
+    <a href="{{ path('products') }}"><button class=' ml-4 my-homebutt mytop'>prodotti</button></a>
+    <button class='my-smtop   my-homebutt'>grafici</button>
+</div>
 {% endblock %}

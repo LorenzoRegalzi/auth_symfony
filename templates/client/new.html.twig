@@ -3,9 +3,12 @@
 {% block title %}New Client{% endblock %}
 
 {% block body %}
-    <h1>Create new Client</h1>
-
-    {{ include('client/_form.html.twig') }}
-
-    <a href="{{ path('clients') }}">back to list</a>
+    <div class="logout">
+        <p>  <a class='link-button' href="{{ path('clients') }}">back to list</a> </p>
+    </div>
+    <button class="btn text-center " id='homebutton'>MyEnesi </button>
+    <div class="my-card m-3 p-2">
+        <h2>Create new Client</h2>
+        {{ include('client/_form.html.twig') }} 
+    </div>
 {% endblock %}

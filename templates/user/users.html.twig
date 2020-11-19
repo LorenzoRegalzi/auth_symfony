@@ -5,6 +5,10 @@
 {% block body %}
 
     <div class='section vh-100 section d-flex flex-column  align-items-center'>
+        <div class="logout">
+            <p>  <a class='link-button' href="{{ path('user_index') }}">back to list</a> </p>
+        </div>
+        <button class="btn text-center " id='homebutton'>MyEnesi </button>
         <div class='navtab mt-5'>
         <h1 class='block'>Dipendenti</h1>
         <div class='block'>{{ include('_formsearch.html.twig') }}</div>
@@ -25,16 +29,19 @@
             </thead>
             <tbody>
             {% for user in users %}
-                <tr>
-                    <td>{{ user.id }}</td>
-                    <td>{{ user.email }}</td>
-                    <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
-                    <td>***</td>
-                    <td>
-                        <a href="{{ path('user_show', {'id': user.id}) }}" class="tablebutton">show</a>
-                        <a href="{{ path('user_edit', {'id': user.id}) }}" class="tablebutton" >edit</a>
-                    </td>
-                </tr>
+                {% if user.id % 2 == 0 %}
+                    <a  href="{{ path('user_show', {'id': user.id}) }}" class='vw-100 pl-4 bg-danger'>
+                        <p>{{ user.id }}</p>
+                        <p>{{ user.email }}</p>
+                        <p>{{ user.roles ? user.roles|json_encode : '' }}</p>
+                    </a>
+                {% else %} 
+                <a  href="{{ path('user_show', {'id': user.id}) }}" class='vw-100 pl-4'>
+                        <p>{{ user.id }}</p>
+                        <p>{{ user.email }}</p>
+                        <p>{{ user.roles ? user.roles|json_encode : '' }}</p>
+                    </a>
+                {% endif %} 
             {% else %}
                 <tr>
                     <td colspan="5">no records found</td>
@@ -43,5 +50,13 @@
             </tbody>
         </table>
     </div>
-    
+    <div id='option' class='text-center'>
+    {% if app.user %}
+        <a href="{{ path('app_logout') }}"><button class='my-smtop my-homebutt'>Logout</button></a>
+    {% endif %} 
+        <a href="{{ path('order_new') }}"><button  class=' mr-4 my-homebutt mytop'>Crea ordine</button></a>
+        <a href="{{ path('clients') }}"><button class=' my-homebutt my-lgtop'>clienti</button></a>
+        <a href="{{ path('products') }}"><button class=' ml-4 my-homebutt mytop'>prodotti</button></a>
+        <button class='my-smtop   my-homebutt'>grafici</button>
+    </div>
 {% endblock %}

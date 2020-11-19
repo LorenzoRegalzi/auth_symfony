@@ -41,6 +41,17 @@ class UserController extends AbstractController
         ]);
     }
 
+        /**
+     * @Route("/charts", name="chart", methods={"GET"})
+     */
+    public function chart(UserRepository $userRepository): Response
+    {
+        
+        
+        return $this->render('user/_chart.html.twig', [
+            'users' => $userRepository->findAll(),
+        ]);
+    }
 
 
     /**
